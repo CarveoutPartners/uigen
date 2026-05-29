@@ -1,0 +1,24 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -r '.tool_input.command' >> ~/.claude/bash-log.txt 2>/dev/null || true"
+          }
+        ]
+      },
+      {
+        "matcher": "Read",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node /Users/barrysmith/CarveoutPartners/uigen/hooks/read_hook.js"
+          }
+        ]
+      }
+    ]
+  }
+}
